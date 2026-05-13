@@ -17,37 +17,56 @@ Aplicación móvil de agenda/productividad para portafolio profesional.
 - Dinámica mentor-mentee: paso a paso, explicando decisiones
 
 ## Estado actual
-- Proyecto inicializado con `@react-native-community/cli`
-- App corriendo en dispositivo físico Android via USB
-- Fast Refresh funcionando
-- **Siguiente paso:** configurar editor, limpiar código base y construir arquitectura de carpetas
+- Auth completo: Login, Register, Logout (Firebase Auth)
+- Feature Tasks completa: CRUD, tareas diarias con reset automático, tareas de una sola vez
+- Feature Calendar: vista por fecha con marcadores de tareas
+- RTK Query + Firestore integrados con adapters local/server
+- Diseño consistente con tema morado (#6C63FF)
+- Splash screen configurado (react-native-bootsplash)
+- Ícono de app personalizado
+- README profesional
+
+**Siguiente paso:** iOS setup (Firebase + pod install), notificaciones push, editar tarea
 
 ## Cómo correr
 ```
 npx react-native run-android
 ```
 
-## Arquitectura de carpetas planeada
+## Arquitectura de carpetas
 ```
 src/
 ├── app/
+│   └── navigation/
+├── assets/
+│   ├── images/
+│   └── bootsplash/
 ├── components/
-│   ├── common/
-│   └── features/
+│   └── common/
 ├── features/
 │   ├── auth/
+│   │   ├── screens/
+│   │   └── styles/
 │   ├── tasks/
+│   │   ├── api/
+│   │   ├── adapters/local/ + server/
+│   │   ├── components/
+│   │   ├── models/local/ + server/
+│   │   ├── screens/
+│   │   ├── styles/
+│   │   └── utils/
 │   └── calendar/
+│       ├── screens/
+│       └── styles/
 ├── hooks/
-├── services/
+├── services/firebase/
 ├── store/
-├── types/
-├── utils/
-└── constants/
+└── types/
 ```
 
 ## Convenciones
-- Nombrar componentes en PascalCase
+- Componentes en PascalCase
 - Hooks con prefijo `use`
 - Servicios en camelCase
-- Tipos/interfaces con prefijo I o sufijo Type según contexto
+- Modelos con sufijo `Local` o `Server` según contexto
+- Adapters en `adapters/local/` y `adapters/server/`

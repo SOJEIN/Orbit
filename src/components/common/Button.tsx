@@ -9,22 +9,25 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
 }
 
-function Button({
-  label,
-  onPress,
-  isLoading,
-  variant = 'primary',
-}: ButtonProps) {
+function Button({ label, onPress, isLoading, variant = 'primary' }: ButtonProps) {
   return (
     <TouchableOpacity
       style={[buttonStyle.button, buttonStyle[variant]]}
       onPress={onPress}
       disabled={isLoading}
+      activeOpacity={0.8}
     >
       {isLoading ? (
-        <ActivityIndicator color="#fff" />
+        <ActivityIndicator color={variant === 'secondary' ? '#6C63FF' : '#fff'} />
       ) : (
-        <Text style={buttonStyle.label}>{label}</Text>
+        <Text
+          style={[
+            buttonStyle.label,
+            variant === 'secondary' && buttonStyle.labelSecondary,
+          ]}
+        >
+          {label}
+        </Text>
       )}
     </TouchableOpacity>
   );
