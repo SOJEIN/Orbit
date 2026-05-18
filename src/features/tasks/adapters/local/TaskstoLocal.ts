@@ -7,6 +7,7 @@ export const TaskstoLocal = (id: string, data: TaskServer): TaskLocal => ({
   description: data.description,
   completedDate: data.completedDate ?? null,
   date: data.date,
+  time: data.time ?? null,
   userId: data.userId,
   type: data.type,
 });

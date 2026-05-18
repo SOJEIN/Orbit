@@ -6,6 +6,7 @@ export const TaskstoServer = (task: Omit<TaskLocal, 'id'>): TaskServer => ({
   description: task.description,
   completedDate: task.completedDate,
   date: task.date,
+  time: task.time,
   userId: task.userId,
   type: task.type,
   createdAt: Date.now(),

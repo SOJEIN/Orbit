@@ -39,6 +39,17 @@ function LoginScreen() {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      setIsLoading(true);
+      await authService.signInWithGoogle();
+    } catch (error: any) {
+      Alert.alert('Error', error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       style={authStyles.screen}
@@ -78,6 +89,21 @@ function LoginScreen() {
           onPress={handleLogin}
           isLoading={isLoading}
         />
+
+        <View style={authStyles.divider}>
+          <View style={authStyles.dividerLine} />
+          <Text style={authStyles.dividerText}>o</Text>
+          <View style={authStyles.dividerLine} />
+        </View>
+
+        <TouchableOpacity
+          style={authStyles.googleButton}
+          onPress={handleGoogleLogin}
+          disabled={isLoading}
+        >
+          <Text style={authStyles.googleLetter}>G</Text>
+          <Text style={authStyles.googleButtonText}>Continuar con Google</Text>
+        </TouchableOpacity>
 
         <View style={authStyles.footer}>
           <Text style={authStyles.footerText}>¿No tienes cuenta? </Text>

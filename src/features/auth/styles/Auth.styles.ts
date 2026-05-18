@@ -78,4 +78,48 @@ export const authStyles = StyleSheet.create({
     fontWeight: '700',
     color: '#6C63FF',
   },
+
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E0DFF5',
+  },
+
+  dividerText: {
+    fontSize: 12,
+    color: '#AEAEC0',
+    marginHorizontal: 12,
+    letterSpacing: 0.5,
+  },
+
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: '#E0DFF5',
+    backgroundColor: '#fff',
+    marginBottom: 8,
+    gap: 10,
+  },
+
+  googleLetter: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#4285F4',
+  },
+
+  googleButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#1A1A2E',
+  },
 });

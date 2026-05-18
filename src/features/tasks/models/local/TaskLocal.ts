@@ -4,6 +4,7 @@ export interface TaskLocal {
   description: string;
   completedDate: string | null;
   date: string;
+  time: string | null;
   userId: string;
   type: 'daily' | 'once';
 }

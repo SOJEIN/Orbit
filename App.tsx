@@ -5,12 +5,16 @@ import BootSplash from 'react-native-bootsplash';
 import { store } from '@/store/index';
 import RootNavigator from '@/app/navigation/RootNavigator';
 import { useAuth } from '@/hooks/useAuth';
+import { configureGoogleSingning } from '@/services/firebase/auth/googleAuthService';
+import { notificationService } from '@/services/notifications/notificationService';
 
+configureGoogleSingning();
 function AppContent() {
   useAuth();
 
   useEffect(() => {
     BootSplash.hide({ fade: true });
+    notificationService.requestPermission();
   }, []);
 
   return <RootNavigator />;

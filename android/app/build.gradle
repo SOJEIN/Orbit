@@ -106,6 +106,27 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def appName = "orbit"
+            def versionName = variant.versionName
+            def buildType = variant.buildType.name
+            outputFileName = "${appName}-${buildType}-v${versionName}.apk"
+        }
+        if (variant.buildType.name == "release") {
+            variant.assembleProvider.get().doLast {
+                def apkDir = file("../../builds")
+                apkDir.mkdirs()
+                variant.outputs.each { output ->
+                    copy {
+                        from output.outputFile
+                        into apkDir
+                    }
+                }
+            }
+        }
+    }
 }
 
 dependencies {

@@ -49,6 +49,17 @@ function RegisterScreen() {
     }
   };
 
+  const handleGoogleSignUp = async () => {
+    try {
+      setIsLoading(true);
+      await authService.signInWithGoogle();
+    } catch (error: any) {
+      Alert.alert('Error', error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       style={authStyles.screen}
@@ -104,6 +115,21 @@ function RegisterScreen() {
           onPress={handleRegister}
           isLoading={isLoading}
         />
+
+        <View style={authStyles.divider}>
+          <View style={authStyles.dividerLine} />
+          <Text style={authStyles.dividerText}>o</Text>
+          <View style={authStyles.dividerLine} />
+        </View>
+
+        <TouchableOpacity
+          style={authStyles.googleButton}
+          onPress={handleGoogleSignUp}
+          disabled={isLoading}
+        >
+          <Text style={authStyles.googleLetter}>G</Text>
+          <Text style={authStyles.googleButtonText}>Continuar con Google</Text>
+        </TouchableOpacity>
 
         <View style={authStyles.footer}>
           <Text style={authStyles.footerText}>¿Ya tienes cuenta? </Text>

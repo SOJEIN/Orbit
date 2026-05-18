@@ -24,11 +24,14 @@ A modern productivity app for managing daily routines and one-time tasks, built 
 
 ### Features
 
-- **Authentication** — Email/password login and registration with Firebase Auth
+- **Authentication** — Email/password and Google Sign-In via Firebase Auth
 - **Daily tasks** — Recurring tasks that reset automatically every day
 - **One-time tasks** — Tasks scheduled for a specific date
 - **Calendar view** — Visual overview of tasks by date with dot markers
-- **Task management** — Create, complete, and delete tasks in real time
+- **Task management** — Create, edit, complete, and delete tasks in real time
+- **Delete confirmation** — Alert dialog before removing any task
+- **Pull to refresh** — Swipe down to sync tasks from Firestore
+- **Animations** — Card entry, checkbox bounce and empty state via Reanimated
 - **Persistent state** — All data synced with Firestore, survives app restarts
 
 ### Tech Stack
@@ -41,6 +44,7 @@ A modern productivity app for managing daily routines and one-time tasks, built 
 | Global state | Zustand |
 | Server state / API | RTK Query (Redux Toolkit) |
 | Backend | Firebase Auth + Firestore |
+| Animations | React Native Reanimated |
 | Calendar | react-native-calendars |
 | Splash screen | react-native-bootsplash |
 
@@ -140,12 +144,16 @@ service cloud.firestore {
 | Feature | Status |
 |---|---|
 | Auth (Login / Register) | ✅ Done |
+| Google Sign-In | ✅ Done |
 | Daily & one-time tasks | ✅ Done |
+| Edit task | ✅ Done |
+| Delete confirmation | ✅ Done |
+| Pull to refresh | ✅ Done |
+| Animations (Reanimated) | ✅ Done |
 | Calendar view | ✅ Done |
 | App icon & splash screen | ✅ Done |
-| iOS support | 🔄 Planned |
 | Push notifications | 🔄 Planned |
-| Edit task | 🔄 Planned |
+| iOS support | 🔄 Planned |
 
 ---
 
@@ -155,11 +163,14 @@ Una app de productividad moderna para gestionar rutinas diarias y tareas puntual
 
 ### Funcionalidades
 
-- **Autenticación** — Login y registro con email/contraseña usando Firebase Auth
+- **Autenticación** — Login y registro con email/contraseña y Google Sign-In via Firebase Auth
 - **Tareas diarias** — Tareas recurrentes que se reinician automáticamente cada día
 - **Tareas de una vez** — Tareas programadas para una fecha específica
 - **Vista de calendario** — Visualización de tareas por fecha con marcadores
-- **Gestión de tareas** — Crear, completar y eliminar tareas en tiempo real
+- **Gestión de tareas** — Crear, editar, completar y eliminar tareas en tiempo real
+- **Confirmación al eliminar** — Diálogo de alerta antes de borrar cualquier tarea
+- **Pull to refresh** — Desliza hacia abajo para sincronizar con Firestore
+- **Animaciones** — Entrada de cards, bounce en checkbox y estado vacío con Reanimated
 - **Estado persistente** — Todos los datos sincronizados con Firestore
 
 ### Stack Tecnológico
@@ -172,6 +183,7 @@ Una app de productividad moderna para gestionar rutinas diarias y tareas puntual
 | Estado global | Zustand |
 | Estado del servidor / API | RTK Query (Redux Toolkit) |
 | Backend | Firebase Auth + Firestore |
+| Animaciones | React Native Reanimated |
 | Calendario | react-native-calendars |
 | Splash screen | react-native-bootsplash |
 
@@ -271,12 +283,16 @@ service cloud.firestore {
 | Funcionalidad | Estado |
 |---|---|
 | Auth (Login / Register) | ✅ Listo |
+| Google Sign-In | ✅ Listo |
 | Tareas diarias y de una vez | ✅ Listo |
+| Editar tarea | ✅ Listo |
+| Confirmar antes de eliminar | ✅ Listo |
+| Pull to refresh | ✅ Listo |
+| Animaciones (Reanimated) | ✅ Listo |
 | Vista de calendario | ✅ Listo |
 | Ícono y splash screen | ✅ Listo |
-| Soporte iOS | 🔄 Planeado |
 | Notificaciones push | 🔄 Planeado |
-| Editar tarea | 🔄 Planeado |
+| Soporte iOS | 🔄 Planeado |
 
 ---
 
